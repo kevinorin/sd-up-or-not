@@ -1,20 +1,21 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import PostBox from '../components/PostBox'
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="max-w-4xl my-7 mx-auto">
       <Head>
         <title>Up or Not by Super Distros</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Hello World
-        </h1>
-      </main>
+      {/* PostBox */}
+      <PostBox/>
+
+      {/* Feed */}
+      <div>
+
+      </div>
     </div>
   )
 }

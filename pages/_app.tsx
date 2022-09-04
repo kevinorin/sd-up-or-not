@@ -1,9 +1,9 @@
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import { SessionProvider } from "next-auth/react";
-import { ApolloProvider } from '@apollo/client';
-import Header from '../components/Header';
-import client from '../apollo-client.js';
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
+import { SessionProvider } from "next-auth/react"
+import { ApolloProvider } from '@apollo/client'
+import Header from '../components/Header'
+import client from '../apollo-client.js'
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
   return (
