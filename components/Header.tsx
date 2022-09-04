@@ -23,12 +23,14 @@ function Header() {
         <ChevronDownIcon className="h-5 w-5" />
       </div>
 
+      {/* Search */}
       <form className="flex flex-1 items-center space-x-2 border border-gray-200 rounded-md bg-gray-100 px-3 py-1">
         <SearchIcon className="h-5 w-5 text-gray-400"/>
         <input className="flex-1 bg-transparent outline-none" type="text" placeholder="Search" />
         <button className="" type="submit" hidden />
       </form>
 
+      {/* Icon Menu */}
       <div className="mx-5 hidden space-x-2 items-center text-gray-500 lg:inline-flex">
         <BellIcon className="icon"/> 
         <ChatIcon className="icon"/>
@@ -39,6 +41,7 @@ function Header() {
         <CurrencyDollarIcon className="icon"/>
       </div>
 
+      {/* Show mobile menu  */}
       <div className="ml-5 flex items-center lg:hidden">
         <MenuIcon className="icon" />
       </div>
@@ -52,8 +55,12 @@ function Header() {
             <div className="relative h-5 w-5 fle flex-shrink-0">
               <LogoutIcon className="" />
             </div>
+            <div class="flex-1 text-xs">
+              <p className='truncate text-red-500 font-medium'>{session?.user?.name}</p>
+              <p className="flex text-gray-500 items-center"><StarIcon className="flex text-red-500 h-3"/>Lvl 1 Super</p>
+            </div>
 
-            <p className="text-gray-500 font-medium">Sign Out</p>
+            <ChevronDownIcon className="h-5 flex-shrink-0 text-gray-500"/>
           </div>
         </div>
       ) : (
