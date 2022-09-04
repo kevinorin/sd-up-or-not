@@ -55,9 +55,9 @@ function Header() {
             <div className="relative h-5 w-5 fle flex-shrink-0">
               <LogoutIcon className="" />
             </div>
-            <div class="flex-1 text-xs">
+            <div className="flex-1 text-xs">
               <p className='truncate text-red-500 font-medium'>{session?.user?.name}</p>
-              <p className="flex text-gray-500 items-center"><StarIcon className="flex text-red-500 h-3"/>Lvl 1 Super</p>
+              <p className="flex text-gray-500 items-center">Lvl 1 Super</p>
             </div>
 
             <ChevronDownIcon className="h-5 flex-shrink-0 text-gray-500"/>
