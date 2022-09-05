@@ -18,7 +18,7 @@ export const ADD_POST = gql`
             body
             created_at
             id
-            Image
+            image
             subreddit_id
             title
             username
@@ -27,7 +27,7 @@ export const ADD_POST = gql`
 `
 
 export const ADD_SUBREDDIT = gql`
-    mutation MyMutation($topic: String!) {
+    mutation MyMutations($topic: String!) {
         insertSubreddit(topic: $topic) {
             id
             topic

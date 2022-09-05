@@ -4,7 +4,7 @@ import PostBox from '../components/PostBox'
 
 const Home: NextPage = () => {
   return (
-    <div className="max-w-4xl my-7 mx-auto">
+    <div className="max-w-4xl my-6 mx-auto">
       <Head>
         <title>Up or Not by Super Distros</title>
       </Head>

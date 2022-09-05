@@ -51,24 +51,27 @@ function PostBox() {
                 // create subreddit
                 console.log('Subreddit is new, creating new subreddit')
                 
-                const { data: { insertSubreddit: newSubreddit } } = await addSubreddit({
+                const {
+                    data: { insertSubreddit: newSubreddit },
+                } = await addSubreddit({
                     variables: {
-                        topic: formData.subreddit
-                    }
+                        topic: formData.subreddit,
+                    },
                 })
-                console.log('Creating post...')
+
+                console.log('Creating post...', formData)
                 const image = formData.postImage || ''
 
                 const {
                     data: { insertPost: newPost },
-                } = await addPost ({
+                } = await addPost({
                     variables: {
                         body: formData.postBody,
                         image: image,
                         subreddit_id: newSubreddit.id,
                         title: formData.postTitle,
                         username: session?.user?.name,
-                    }
+                    },
                 })
 
                 console.log('New post added', newPost)
@@ -81,26 +84,27 @@ function PostBox() {
 
                 const {
                     data: { insertPost: newPost },
-                } = await addPost ({
+                } = await addPost({
                     variables: {
                         body: formData.postBody,
                         image: image,
                         subreddit_id: getSubredditListByTopic[0].id,
                         title: formData.postTitle,
                         username: session?.user?.name,
-                    }
+                    },
                 })
-
+                
+                console.log('New post added', newPost)
             }
 
-            // after post
+            // after post has been added
             setValue('postBody', '')
             setValue('postImage', '')
             setValue('postTitle', '')
             setValue('subreddit', '')
             
             toast.success('New poast created', {
-                id: notification,
+                id: notification, 
             })
         } catch (error) {
             toast.error('Whoops something when wrong!', {
@@ -110,7 +114,10 @@ function PostBox() {
     })
   
     return (
-        <form onSubmit={onSubmit} className="sticky top-16 z-50 bg-white rounded-md border border-rounded border-gray-300 p-2">
+        <form 
+            onSubmit={onSubmit} 
+            className="sticky top-16 z-50 bg-white rounded-md border border-rounded border-gray-300 p-2"
+        >
             <div className="flex items-center space-x-3">
                 {/* Avatar */}
                 <Avatar />

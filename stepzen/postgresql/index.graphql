@@ -5,7 +5,10 @@ type Comment {
   post: Post
     @materializer(
       query: "getPost"
-      arguments: [{ name: "id", field: "post_id" }]
+      arguments: [
+        { name: "id", field: "post_id" }
+        { name: "id", field: "post_id" }
+      ]
     )
   post_id: ID
   username: String
@@ -20,7 +23,10 @@ type Post {
   post: Post
     @materializer(
       query: "getPost"
-      arguments: [{ name: "id", field: "subreddit_id" }]
+      arguments: [
+        { name: "id", field: "subreddit_id" }
+        { name: "id", field: "subreddit_id" }
+      ]
     )
   postList: [Post] @materializer(query: "getPostUsingSubreddit_id")
   subreddit_id: ID
@@ -41,7 +47,10 @@ type Vote {
   post: Post
     @materializer(
       query: "getPost"
-      arguments: [{ name: "id", field: "post_id" }]
+      arguments: [
+        { name: "id", field: "post_id" }
+        { name: "id", field: "post_id" }
+      ]
     )
   post_id: ID
   username: String
@@ -124,18 +133,22 @@ type Query {
       table: "subreddit"
       configuration: "postgresql_config"
     )
-
+  """
+  Additions
+  """
   getSubredditListByTopic(topic: String!): [Subreddit]
     @dbquery(
       type: "postgresql"
-      schema: "public"
       query: """
-      select * from "subreddit" where topic = $1
+      SELECT T."topic", T."created_at", T."topic", T."id"
+        FROM "public"."subreddit" T
+        WHERE T."topic" = $1
       """
       configuration: "postgresql_config"
     )
-
-
+  """
+  End Additions
+  """
   getVoteList: [Vote]
     @dbquery(
       type: "postgresql"
@@ -180,6 +193,7 @@ type Mutation {
   insertPost(
     image: String!
     body: String!
+    created_at: DateTime!
     subreddit_id: ID!
     title: String!
     username: String!
@@ -199,8 +213,7 @@ type Mutation {
       dml: DELETE
       configuration: "postgresql_config"
     )
-    
-  insertSubreddit(created_at: DateTime!, topic: String!): Subreddit
+  insertSubreddit(topic: String!): Subreddit
     @dbquery(
       type: "postgresql"
       schema: "public"

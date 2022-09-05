@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from "next/image";
 import { BellIcon, ChatIcon, BookOpenIcon, CodeIcon, CogIcon, CurrencyDollarIcon } from '@heroicons/react/outline';
-import { StarIcon, ChevronDownIcon, HomeIcon, SearchIcon, MenuIcon, LoginIcon, LogoutIcon } from '@heroicons/react/solid';
+import { ChevronDownIcon, HomeIcon, SearchIcon, MenuIcon, LoginIcon, LogoutIcon } from '@heroicons/react/solid';
 import { signIn, signOut, useSession } from 'next-auth/react';
 
 
