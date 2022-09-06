@@ -5,9 +5,10 @@ import { LinkIcon, PhotographIcon } from '@heroicons/react/outline'
 import { useForm } from 'react-hook-form'
 import { useMutation } from '@apollo/client'
 import { ADD_POST, ADD_SUBREDDIT } from '../graphql/mutations'
-import client from '../apollo-client.js'
 import { GET_SUBREDDIT_BY_TOPIC } from '../graphql/queries'
 import toast from 'react-hot-toast'
+import client from '../apollo-client'
+
 
 type FormData = {
     postTitle: string

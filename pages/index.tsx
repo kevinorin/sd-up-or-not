@@ -4,9 +4,9 @@ import PostBox from '../components/PostBox'
 
 const Home: NextPage = () => {
   return (
-    <div className="max-w-4xl my-6 mx-auto">
+    <div className="my-4 mx-auto max-w-4xl">
       <Head>
-        <title>Up or Not by Super Distros</title>
+        <title>Threaddit by Super Distros</title>
       </Head>
 
       {/* PostBox */}
