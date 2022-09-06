@@ -103,11 +103,11 @@ function PostBox() {
             setValue('postTitle', '')
             setValue('subreddit', '')
             
-            toast.success('New poast created', {
+            toast.success('New post created', {
                 id: notification, 
             })
         } catch (error) {
-            toast.error('Whoops something when wrong!', {
+            toast.error('Whoops something went wrong!', {
                 id: notification,
             })
         }
